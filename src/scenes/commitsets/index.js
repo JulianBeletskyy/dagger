@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ReactTable from 'react-table'
-import 'react-table/react-table.css'
 import { history } from 'store'
 import TextField from 'components/inputs/TextField'
 import Btn from 'components/buttons/Btn'
@@ -29,7 +28,7 @@ class Commitsets extends Component {
 	}
 
     render() {
-    	const { list } = this.props
+    	const { list, buildCommit } = this.props
 	  	const columns = [{
 		    Header: 'Commit',
 		    accessor: 'dcommitset',
@@ -61,15 +60,19 @@ class Commitsets extends Component {
 			    		data={list}
 			    		columns={columns} />
 	    		</div>
+	    		<div dangerouslySetInnerHTML={{__html: 
+	    			buildCommit.replace(/\\n/g, "\n").replace(/[\r\n]+/g, '<br />')
+					 }} />
             </div>
         );
     }
 }
 
-const mapStateToProps = ({socket: { client }, commits: {list}}) =>
+const mapStateToProps = ({socket: { client }, commitsets: {list, buildCommit}}) =>
     ({
         client: client,
         list: list,
+        buildCommit: buildCommit,
     })
 
 export default connect(mapStateToProps)(Commitsets)

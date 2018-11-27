@@ -1,6 +1,5 @@
 .App {
     height: 100vh;
-    overflow: hidden;
 }
 
 .btn-main {
@@ -42,8 +41,9 @@
 }
 
 .wrap-side-menu {
-    height: calc(100vh - 56px);
+    min-height: calc(100vh - 56px);
     background-color: rgb(76, 93, 133);
+    height: 100%;
 }
 
 .pointer {

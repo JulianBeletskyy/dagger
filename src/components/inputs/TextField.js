@@ -26,7 +26,7 @@ class TextField extends Component {
                 type={type}
                 disabled={disabled}
                 ref={this.thisRef}
-                className={`form-control text-field  ${className}`}
+                className={`form-control text-field ${className}`}
                 onChange={this.handleChange}
                 defaultValue={value} />
         );

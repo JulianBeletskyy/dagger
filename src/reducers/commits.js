@@ -10,7 +10,6 @@ export default function commits(commits = initialState, action = {}) {
 			return Object.assign({}, commits, {
 				list: action.list
 			})
-		
 		default:
             return commits
 	}

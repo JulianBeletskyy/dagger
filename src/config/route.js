@@ -4,18 +4,24 @@ export default {
             'path': '/',
             'component': 'Main'
         }, {
+            'path': '/commitsets',
+            'component': 'Commitsets'
+        }, {
+            'path': '/commitset',
+            'component': 'Commitset'
+        }, {
             'path': '/commits',
             'component': 'Commits'
+        }, {
+            'path': '/commit',
+            'component': 'Commit'
         }, {
             'path': '/workers',
             'component': 'Workers',
         }, {
             'path': '/nodes',
             'component': 'Nodes'
-        }, {
-            'path': '/commitsets',
-            'component': 'Commitsets'
-        }, {
+        },  {
             'path': '*',
             'component': 'NotFound'
         },

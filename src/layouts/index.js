@@ -16,7 +16,7 @@ class Layout extends Component {
 			    <div className="container-fluid bg-white">
 				    <div className="row">
 				    	<div className="col-5 col-sm-4 col-md-3 col-lg-2 pl-0">
-						    <aside>
+						    <aside className="h-100">
 						    	<SideMenu />
 						    </aside>
 					    </div>
