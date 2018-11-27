@@ -14,6 +14,7 @@ These instructions will get you a copy of the project up and running on your loc
 * [React redux (5.0.7)](https://github.com/reduxjs/react-redux)
 * [React router redux (5.0.0-alpha.9)](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux)
 * [React router dom (4.3.1)](https://github.com/ReactTraining/react-router)
+* [React Table (6.8.6)](https://github.com/react-tools/react-table)
 * [History (4.7.2)](https://github.com/ReactTraining/history)
 * [Cross env (5.2.0)](https://github.com/kentcdodds/cross-env)
 
@@ -44,6 +45,8 @@ npm install
 npm run-script build
 ```
 
+Your DocumentRoot for your web server must be /build.
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License.
