@@ -6,7 +6,6 @@ import { history } from 'store'
 class PublicHeader extends Component {
 
     handleClick = item => () => {
-        const { client } = this.props
         if (item.link) {
             history.push(`/${item.link}`)
         }

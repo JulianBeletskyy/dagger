@@ -1,5 +1,4 @@
 import * as types from './types'
-import Cookies from 'js-cookie'
 
 export const setLocation = location =>
 	({

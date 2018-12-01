@@ -13,12 +13,12 @@ class Layout extends Component {
 			    </header>
 			    <div className="container-fluid">
 				    <div className="row">
-				    	<div className="col-2 pl-0">
+				    	<div className="col-5 col-sm-4 col-md-3 col-lg-2 pl-0">
 						    <aside>
 						    	<SideMenu />
 						    </aside>
 					    </div>
-					    <div className="col-10">
+					    <div className="col-7 col-sm-8 col-md-9 col-lg-10">
 					    	<main>
 						    	{ children }
 						    </main>

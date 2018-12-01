@@ -1,5 +1,4 @@
 import * as types from 'actions/types'
-import Cookies from 'js-cookie'
 
 const initialState = {
 	location: '/',
