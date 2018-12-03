@@ -6,7 +6,7 @@ class PublicHeader extends Component {
     render() {
     	const { ping, connection } = this.props
         return (
-            <div className="header-wrap bg-white container-fluid p-3">
+            <div className="header-wrap bg-white container-fluid p-3 position-relative">
 	            <div className="row justify-content-between align-items-center">
 	            	<div className="col-2">
 		            	<div className="d-flex align-items-center">

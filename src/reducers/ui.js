@@ -12,6 +12,13 @@ const initialState = {
 		title: '',
 		component: null
 	},
+	confirm_alert: {
+		show: false,
+		text: '',
+		onCancel: null,
+		onConfirm: null,
+		buttons: true,
+	}
 }
 
 export default function ui(ui = initialState, action = {}) {
@@ -31,6 +38,10 @@ export default function ui(ui = initialState, action = {}) {
 		case types.CLOSE_MODAL:
 			return Object.assign({}, ui, {
 				modal: {...ui.modal, open: false}
+			})
+		case types.TOGGLE_CONFIRM_ALERT:
+			return Object.assign({}, ui, {
+				confirm_alert: {show: action.show, text: action.text, onCancel: action.onCancel, onConfirm: action.onConfirm, buttons: action.buttons}
 			})
 		default:
             return ui;

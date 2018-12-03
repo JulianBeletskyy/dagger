@@ -2,16 +2,18 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Header from 'components/header'
 import SideMenu from 'components/menu/side'
+import ConfirmAlert from 'components/confirm'
 
 class Layout extends Component {
 	render() {
-		const { children } = this.props
+		const { children, confirm } = this.props
 		return (
 			<div>
+				<div className={`layout-confirm-alert ${confirm ? 'active' : 'disabled'}`}>
 				<header>
 					<Header />
 			    </header>
-			    <div className="container-fluid">
+			    <div className="container-fluid bg-white">
 				    <div className="row">
 				    	<div className="col-5 col-sm-4 col-md-3 col-lg-2 pl-0">
 						    <aside>
@@ -28,6 +30,9 @@ class Layout extends Component {
 			    <footer>
 			    	
 			    </footer>
+			    </div>
+			    <div className={`layout-confirm-alert ${confirm ? 'active' : 'disabled'}`}></div>
+			    {confirm && <ConfirmAlert />}
 		    </div>
 		)
 	}
@@ -35,7 +40,7 @@ class Layout extends Component {
 
 const mapStateToProps = state =>
     ({
-        
+        confirm: state.ui.confirm_alert.show,
     })
 
 export default connect(mapStateToProps)(Layout)

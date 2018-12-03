@@ -8,7 +8,6 @@ class CustomModal extends Component {
 
     onCloseModal = () => {
     	store.dispatch(closeModal()).then(() => {
-    		/* Wait for animation */
     		setTimeout(() => {store.dispatch(toggleModal())}, 400)
     	})
 	}

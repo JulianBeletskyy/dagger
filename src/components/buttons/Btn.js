@@ -8,7 +8,7 @@ class Btn extends Component {
             <button
                 type={type}
                 disabled={disabled}
-                className={`btn btn-primary ${className}`}
+                className={`btn btn-primary btn-main ${className}`}
                 onClick={onClick}>
                 {title}
             </button>

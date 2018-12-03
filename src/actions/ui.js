@@ -12,6 +12,17 @@ export const setAlert = (text = '', level = 'success', delay = 2000) =>
         data: {text, level, delay}
     })
 
+export const toggleConfirmAlert = (show = false, text = '', onConfirm = null, onCancel = null, buttons = true) => {
+    return {
+        type: types.TOGGLE_CONFIRM_ALERT,
+        show,
+        text,
+        onConfirm,
+        onCancel,
+        buttons
+    }
+}
+
 export const toggleModal = (open = false, title = '', component = null) =>
 	({
         type: types.TOGGLE_MODAL,
