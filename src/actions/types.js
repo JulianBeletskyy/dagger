@@ -10,3 +10,5 @@ export const SET_CONNECTION = 'SET_CONNECTION'
 export const SET_CLIENT = 'SET_CLIENT'
 export const SET_READY = 'SET_READY'
 export const SET_START_PING = 'SET_START_PING'
+
+export const SET_COMMITS_LIST = 'SET_COMMITS_LIST'

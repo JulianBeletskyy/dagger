@@ -7,12 +7,22 @@
     border-radius: 8px;
     background-color: rgb(50,206,217);
     border-color: rgb(50,206,217);
+    min-width: 80px;
 }
 
-.btn-main:hover {
-    background-color: transparent;
-    color: rgb(50,206,217);
-    border-color: rgb(50,206,217);
+.-pagination {
+    margin-bottom: 30px;
+}
+
+.btn-main:hover,
+.btn-primary.btn-main:active {
+    background-color: transparent !important;
+    color: rgb(50,206,217) !important;
+    border-color: rgb(50,206,217) !important;
+}
+
+.text-grey {
+    color: rgb(116,119,126);
 }
 
 .btn-cancel {
@@ -25,6 +35,10 @@
     background-color: rgb(50,206,217);
     border-color: rgb(50,206,217);
     color: #fff;
+}
+
+.text-field {
+    border-radius: 8px;
 }
 
 .wrap-side-menu {
@@ -71,11 +85,13 @@
     position: relative;
 }
 
-.item-side-menu:hover {
+.item-side-menu:hover,
+.item-side-menu.active {
     color: #fff;
 }
 
-.item-side-menu:hover:before {
+.item-side-menu:hover:before,
+.item-side-menu.active:before {
     content: '';
     position: absolute;
     background-color: rgb(49, 205, 216);
@@ -96,6 +112,26 @@
     background-color: rgba(0,0,0,0.5);
     filter: blur(3px);
     z-index: 1
+}
+
+.ReactTable .rt-thead .rt-th.-sort-desc,
+.ReactTable .rt-thead .rt-td.-sort-desc {
+    box-shadow: inset 0 -3px 0 0 rgba(49, 205, 216,0.8);
+}
+
+.ReactTable .-pagination .-btn {
+    border-radius: 8px;
+    background-color: rgb(50,206,217);
+    border-color: rgb(50,206,217);
+    min-width: 80px;
+    color: #fff;
+}
+
+.ReactTable .-pagination .-btn:not(:disabled):hover {
+    background-color: transparent !important;
+    color: rgb(50,206,217) !important;
+    border-color: rgb(50,206,217) !important;
+    border: 1px solid rgb(50,206,217);
 }
 
 .inner-confirm-alert {

@@ -24,7 +24,8 @@ class PublicHeader extends Component {
     }
 
 	renderMenuList = (item, i) => {
-		return <div key={i} className="item-side-menu" onClick={this.handleClick(item)}>{item.title}</div>
+        const [,location] = history.location.pathname.split('/')
+		return <div key={i} className={`item-side-menu ${item.link === location ? 'active' : ''}`} onClick={this.handleClick(item)}>{item.title}</div>
 	}
 
     render() {
@@ -39,6 +40,7 @@ class PublicHeader extends Component {
 const mapStateToProps = state =>
     ({
         client: state.socket.client,
+        location: state.ui.location,
     })
 
 export default connect(mapStateToProps)(PublicHeader)

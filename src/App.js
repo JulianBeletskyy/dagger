@@ -47,9 +47,14 @@ class App extends Component {
         return (
             <div className="App">
                 <Layout>
-                    <Switch>
-                        { routing[key].map((route, i) => this.renderRoutes(route, i)) }
-                    </Switch>
+                    {
+                       this.props.ready
+                       ?    <Switch>
+                                { routing[key].map((route, i) => this.renderRoutes(route, i)) }
+                            </Switch>
+                       :    null 
+                    }
+                    
                 </Layout>
                 <Alert />
                 <Modal />

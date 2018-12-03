@@ -13,6 +13,9 @@ export default {
             'path': '/nodes',
             'component': 'Nodes'
         }, {
+            'path': '/commitsets',
+            'component': 'Commitsets'
+        }, {
             'path': '*',
             'component': 'NotFound'
         },
