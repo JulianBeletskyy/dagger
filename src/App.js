@@ -12,8 +12,6 @@ import './App.css'
 import { setConnection, setStartPing } from 'actions'
 import Layout from 'layouts'
 
-let timeoutPing
-
 class App extends Component {
     constructor(props) {
         super(props)
@@ -29,12 +27,8 @@ class App extends Component {
     startPing = () => {
         const { dispatch, client } = this.props
         setInterval(() => {
-            clearTimeout(timeoutPing)
             const id = client.ping()
             dispatch(setStartPing(id, new Date()))
-            timeoutPing = setTimeout(() => {
-                dispatch(setConnection(false))
-            }, 1000)
         }, 1000)
     }
 
