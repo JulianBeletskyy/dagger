@@ -1,32 +1,61 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ReactTable from 'react-table'
+import { history } from 'store'
 import TextField from 'components/inputs/TextField'
 import Btn from 'components/buttons/Btn'
 
 class Commitset extends Component {
-	getCommitset = () => {
+	componentDidMount() {
 		const { client } = this.props
-		client.get_dcommitset(this.commit.value)
+		const link = decodeURIComponent(this.props.match.params.commitset)
+		client.get_dcommitset(link)
+	}
+
+	getList = (commitSet, type) => {
+		return Object.keys(commitSet[type]).map(item => ({[type]: item, value: commitSet[type][item]}))
 	}
 
     render() {
-    	const { commitSet = [] } = this.props
-    	console.log(commitSet)
+    	const { commitSet } = this.props
+    	const dcallablesColumns = [{
+		    Header: 'dcallables',
+		    accessor: 'dcallables',
+		    Cell: props => <span>{props.value}</span>
+	  	},{
+		    Header: 'value',
+		    accessor: 'value',
+		    Cell: props => <a href={props.value} target="_blank">{props.value}</a>
+	  	}]
+
+	  	const columns = [{
+		    Header: 'dcommits',
+		    accessor: 'dcommits',
+		    className: 'text-center',
+		    Cell: props => <a href={props.original} target="_blank">{props.original}</a>
+	  	}]
         return (
             <div className="h-100">
-            	<h1>Commitset</h1>
-            	<form className="form-inline">
-					  <div className="form-group mb-2">
-					    	<label className="text-grey">Commitset</label>
-					  </div>
-					  <div className="form-group mx-sm-3 mb-2">
-					    	<TextField inputRef={ref => this.commit = ref} />
-					  </div>
-				  	<Btn title="Ok" className="mb-2" onClick={this.getCommitset} />
-				</form>
+            	<h1>Commit Set</h1>
 				<div>
-	            	
+				{
+					commitSet.dcallables
+					? 	<ReactTable
+							showPagination={false}
+		            		defaultPageSize={Object.keys(commitSet.dcallables).length}
+				    		data={this.getList(commitSet, 'dcallables')}
+				    		columns={dcallablesColumns} />
+		    		: 	null
+				}
+				{
+					commitSet.dcommits
+					? 	<ReactTable
+							showPagination={false}		            		
+							defaultPageSize={commitSet.dcommits.size}
+				    		data={[...commitSet.dcommits.values()]}
+				    		columns={columns} />
+					: 	null
+				}
 	    		</div>
             </div>
         );

@@ -3,7 +3,7 @@ import * as types from 'actions/types'
 const initialState = {
 	list: [],
 	buildCommit: '',
-	commitSet: [],
+	commitSet: {},
 }
 
 export default function commitsets(commitsets = initialState, action = {}) {

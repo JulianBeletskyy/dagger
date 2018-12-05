@@ -1,10 +1,10 @@
 export const SIDE_MENU_LIST = [
 	{title: 'Restart Server'},
 	{title: 'Commitsets', link: 'commitsets'},
-	{title: 'Commitset', link: 'commitset'},
 	{title: 'Commits', link: 'commits'},
-	{title: 'Commit', link: 'commit'},
+	{title: 'Build commit', link: 'build-commit'},
 	{title: 'Workers', link: 'workers'},
+	{title: 'Workers logs', link: 'workers-logs'},
 	{title: 'Nodes', link: 'nodes'},
 	
 ]

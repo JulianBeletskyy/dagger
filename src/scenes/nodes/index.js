@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class Nodes extends Component {
     render() {
         return (
-            <div className="d-flex justify-content-center align-items-center h-100 flex-wrap">
+            <div className="h-100">
             	<h1>Nodes</h1>
             </div>
         );

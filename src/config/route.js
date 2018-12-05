@@ -7,17 +7,23 @@ export default {
             'path': '/commitsets',
             'component': 'Commitsets'
         }, {
-            'path': '/commitset',
+            'path': '/commitset/:commitset',
             'component': 'Commitset'
         }, {
             'path': '/commits',
             'component': 'Commits'
         }, {
-            'path': '/commit',
+            'path': '/commit/:commit',
             'component': 'Commit'
+        }, {
+            'path': '/build-commit',
+            'component': 'BuildCommit'
         }, {
             'path': '/workers',
             'component': 'Workers',
+        }, {
+            'path': '/workers-logs',
+            'component': 'WorkersLogs',
         }, {
             'path': '/nodes',
             'component': 'Nodes'
