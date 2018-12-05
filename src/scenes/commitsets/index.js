@@ -26,10 +26,12 @@ class Commitsets extends Component {
 	  	const columns = [{
 		    Header: 'Commit',
 		    accessor: 'dcommitset',
+		    className: 'text-center',
 		    Cell: props => <a href={`/commitset/${props.value}`} onClick={this.goToCommitSet(props.value)}>{props.value}</a>
 	  	}, {
 		    Header: 'Build Time',
 		    accessor: 'buildtime',
+		    className: 'text-center',
 		    Cell: props => <span className='number'>{ this.formatDate(props.value)}</span>
 	  	}]
         return (

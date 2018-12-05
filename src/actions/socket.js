@@ -35,6 +35,13 @@ const get_dcommitsHandler = (id, response, args) => {
 	}
 }
 
+const get_dcommitHandler = (id, response, args) => {
+	return {
+		type: types.SET_COMMIT,
+		data: response,
+	}
+}
+
 
 
 export default {
@@ -43,4 +50,5 @@ export default {
 	buildHandler,
 	get_dcommitsHandler,
 	get_dcommitsetHandler,
+	get_dcommitHandler,
 }
