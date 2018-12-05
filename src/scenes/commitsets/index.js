@@ -24,7 +24,7 @@ class Commitsets extends Component {
     render() {
     	const { list } = this.props
 	  	const columns = [{
-		    Header: 'Commit',
+		    Header: 'dcommitset',
 		    accessor: 'dcommitset',
 		    className: 'text-center',
 		    Cell: props => <a href={`/commitset/${props.value}`} onClick={this.goToCommitSet(props.value)}>{props.value}</a>
