@@ -24,7 +24,7 @@ class Commitsets extends Component {
     render() {
     	const { list } = this.props
 	  	const columns = [{
-		    Header: 'dcommitset',
+		    Header: 'Commitset',
 		    accessor: 'dcommitset',
 		    className: 'text-center',
 		    Cell: props => <a href={`/commitset/${props.value}`} onClick={this.goToCommitSet(props.value)}>{props.value}</a>
@@ -38,14 +38,18 @@ class Commitsets extends Component {
             <div className="h-100">
             	<h1>Commitsets</h1>
             	<div>
-	            	<ReactTable
-	            		showPaginationTop={true}
-	            		showPaginationBottom={false}
-	            		defaultPageSize={5}
-	            		defaultSorted={[{id: 'buildtime',desc: true}]}
-	            		previousText="Prev"
-			    		data={list}
-			    		columns={columns} />
+            	{
+            		list.length
+            		? 	<ReactTable
+		            		showPaginationTop={false}
+		            		showPaginationBottom={false}
+		            		defaultPageSize={list.length}
+		            		defaultSorted={[{id: 'buildtime',desc: true}]}
+		            		previousText="Prev"
+				    		data={list}
+				    		columns={columns} />
+            		: 	null
+            	}
 	    		</div>
             </div>
         );
