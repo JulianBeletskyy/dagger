@@ -27,7 +27,10 @@ export default {
         }, {
             'path': '/nodes',
             'component': 'Nodes'
-        },  {
+        }, {
+            'path': '/node/:id',
+            'component': 'Node'
+        }, {
             'path': '*',
             'component': 'NotFound'
         },

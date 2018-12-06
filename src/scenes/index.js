@@ -6,7 +6,8 @@ import BuildCommit from './buildcommit'
 import Workers from './workers'
 import WorkersLogs from './workerslogs'
 import Nodes from './nodes'
+import Node from './node'
 import Commitsets from './commitsets'
 import Commitset from './commitset'
 
-export { NotFound, Main, Commits, Commit, BuildCommit, Workers, WorkersLogs, Nodes, Commitsets, Commitset }
+export { NotFound, Main, Commits, Commit, BuildCommit, Workers, WorkersLogs, Nodes, Node, Commitsets, Commitset }

@@ -49,6 +49,20 @@ const get_workersHandler = (id, response, args) => {
 	}
 }
 
+const get_nodesHandler = (id, response, args) => {
+	return {
+		type: types.SET_NODES,
+		data: response,
+	}
+}
+
+const get_nodeHandler = (id, response, args) => {
+	return {
+		type: types.SET_NODE,
+		data: response,
+	}
+}
+
 
 export default {
 	pingHandler,
@@ -58,4 +72,6 @@ export default {
 	get_dcommitsetHandler,
 	get_dcommitHandler,
 	get_workersHandler,
+	get_nodesHandler,
+	get_nodeHandler,
 }

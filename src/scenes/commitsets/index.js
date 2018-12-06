@@ -41,11 +41,9 @@ class Commitsets extends Component {
             	{
             		list.length
             		? 	<ReactTable
-		            		showPaginationTop={false}
-		            		showPaginationBottom={false}
+		            		showPagination={false}
 		            		defaultPageSize={list.length}
 		            		defaultSorted={[{id: 'buildtime',desc: true}]}
-		            		previousText="Prev"
 				    		data={list}
 				    		columns={columns} />
             		: 	null
