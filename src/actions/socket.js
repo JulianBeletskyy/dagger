@@ -42,6 +42,12 @@ const get_dcommitHandler = (id, response, args) => {
 	}
 }
 
+const get_workersHandler = (id, response, args) => {
+	return {
+		type: types.SET_WORKERS,
+		data: response,
+	}
+}
 
 
 export default {
@@ -51,4 +57,5 @@ export default {
 	get_dcommitsHandler,
 	get_dcommitsetHandler,
 	get_dcommitHandler,
+	get_workersHandler,
 }
