@@ -17,22 +17,22 @@ class Workers extends Component {
     render() {
     	const { list } = this.props
     	const columns = [{
-		    Header: 'worker_id',
+		    Header: 'Worker ID',
 		    accessor: 'worker_id',
 		    className: 'text-center',
 		    Cell: props => <span>{props.value}</span>
 	  	}, {
-		    Header: 'dcommit',
+		    Header: 'Commit',
 		    accessor: 'dcommit',
 		    className: 'text-center',
 		    Cell: props => <a href={props.value} target="_blank">{props.value}</a>
 	  	}, {
-		    Header: 'start_time',
+		    Header: 'Start Time',
 		    accessor: 'start_time',
 		    className: 'text-center',
 		    Cell: props => <span>{ this.formatDate(props.value) }</span>
 	  	}, {
-		    Header: 'stop_time',
+		    Header: 'Stop Time',
 		    accessor: 'stop_time',
 		    className: 'text-center',
 		    Cell: props => <span>{ this.formatDate(props.value) }</span>
