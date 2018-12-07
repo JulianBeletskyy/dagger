@@ -8,5 +8,7 @@ export const SIDE_MENU_LIST = [
 	{title: 'Nodes', link: 'nodes'},
 	
 ]
+export const LOGIN = 'guest'
+export const PASSWORD = 'Ly89qLpP'
 export const HOST = '35.176.145.209'
 // export const HOST = '127.0.0.1'

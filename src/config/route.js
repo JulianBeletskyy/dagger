@@ -1,5 +1,5 @@
 export default {
-    'public': [
+    'private': [
         {
             'path': '/',
             'component': 'Main'
@@ -38,10 +38,10 @@ export default {
             'component': 'NotFound'
         },
     ],
-    'private': [
+    'public': [
         {
             'path': '/',
-            'component': 'Main'
+            'component': 'Login'
         },
     ]
 }

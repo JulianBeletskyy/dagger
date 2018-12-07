@@ -4,6 +4,7 @@ export const SET_ALERT = 'SET_ALERT'
 export const TOGGLE_MODAL = 'TOGGLE_MODAL'
 export const CLOSE_MODAL = 'CLOSE_MODAL'
 export const TOGGLE_CONFIRM_ALERT = 'TOGGLE_CONFIRM_ALERT'
+export const SET_TOKEN = 'SET_TOKEN'
 /* SOCKET TYPES */
 export const SET_PING = 'SET_PING'
 export const SET_CONNECTION = 'SET_CONNECTION'

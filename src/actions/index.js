@@ -1,4 +1,5 @@
 import * as types from './types'
+import Cookies from 'js-cookie'
 
 export const setClient = client => dispatch => {
 	dispatch({
@@ -6,6 +7,22 @@ export const setClient = client => dispatch => {
 		client,
 	})
 	return Promise.resolve(true)
+}
+
+export const login = () => dispatch => {
+	dispatch(setToken('token'))
+}
+
+export const logout = () => dispatch => {
+	dispatch(setToken(''))
+}
+
+export const setToken = token => {
+	Cookies.set('token', token)
+	return {
+		type: types.SET_TOKEN,
+		token,
+	} 
 }
 
 export const setReady = value => {

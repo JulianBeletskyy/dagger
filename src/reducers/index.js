@@ -8,6 +8,7 @@ import commitsets from './commitsets.js'
 import callables from './callable.js'
 import workers from './workers.js'
 import nodes from './nodes.js'
+import user from './user.js'
 
 const reducer = combineReducers({
     routing: routerReducer,
@@ -18,6 +19,7 @@ const reducer = combineReducers({
     callables,
     workers,
     nodes,
+    user,
 })
 
 export default reducer
