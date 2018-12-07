@@ -42,6 +42,13 @@ const get_dcommitHandler = (id, response, args) => {
 	}
 }
 
+const get_dcallableHandler = (id, response, args) => {
+	return {
+		type: types.SET_CALLABLE,
+		data: response,
+	}
+}
+
 
 
 export default {
@@ -51,4 +58,5 @@ export default {
 	get_dcommitsHandler,
 	get_dcommitsetHandler,
 	get_dcommitHandler,
+	get_dcallableHandler,
 }

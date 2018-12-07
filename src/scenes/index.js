@@ -8,5 +8,6 @@ import WorkersLogs from './workerslogs'
 import Nodes from './nodes'
 import Commitsets from './commitsets'
 import Commitset from './commitset'
+import Callable from './callable'
 
-export { NotFound, Main, Commits, Commit, BuildCommit, Workers, WorkersLogs, Nodes, Commitsets, Commitset }
+export { NotFound, Main, Commits, Commit, BuildCommit, Workers, WorkersLogs, Nodes, Commitsets, Commitset, Callable }

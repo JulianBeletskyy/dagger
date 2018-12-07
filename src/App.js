@@ -9,7 +9,7 @@ import Alert from 'components/alert'
 import Modal from 'components/modal'
 import 'react-table/react-table.css'
 import './App.css'
-import { setConnection, setStartPing } from 'actions'
+import { setStartPing } from 'actions'
 import Layout from 'layouts'
 
 class App extends Component {

@@ -5,6 +5,7 @@ import ui from './ui.js'
 import socket from './socket.js'
 import commits from './commits.js'
 import commitsets from './commitsets.js'
+import callables from './callable.js'
 
 const reducer = combineReducers({
     routing: routerReducer,
@@ -12,6 +13,7 @@ const reducer = combineReducers({
     socket,
     commitsets,
     commits,
+    callables,
 })
 
 export default reducer

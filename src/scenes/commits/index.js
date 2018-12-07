@@ -19,13 +19,13 @@ class Commits extends Component {
     render() {
     	const { list } = this.props
     	const columns = [{
-		    Header: 'D Call Ables',
+		    Header: '# Callables',
 		    accessor: '# dcallables',
 		    className: 'text-center',
 		    maxWidth: 150,
 		    Cell: props => <span>{props.value}</span>
 	  	}, {
-		    Header: 'D Commit',
+		    Header: 'Commit',
 		    accessor: 'dcommit',
 		    className: 'text-center',
 		    Cell: props => <a href={props.value} onClick={this.goToCommit(props.value)}>{ props.value }</a>
@@ -35,18 +35,21 @@ class Commits extends Component {
 		    maxWidth: 200,
 		    className: 'text-center',
 		    Cell: props => <span>{ props.value }</span>
-	  	}]
+		  }]
         return (
             <div className="h-100">
             	<h1>Commits</h1>
             	<div>
-	            	<ReactTable
-	            		showPaginationTop={true}
-	            		showPaginationBottom={false}
-	            		defaultPageSize={5}
-	            		previousText="Prev"
-			    		data={list}
-			    		columns={columns} />
+				{
+	            	list && list.length>0
+					?	<ReactTable
+							showPaginationTop={false}
+							showPaginationBottom={false}
+							// defaultPageSize={list.length} // TODO commenting out because of bug: if you click to the page multiple times with different table sizes then seometimes this gets stuck with a previous table size and cuts off some results
+							data={list}
+							columns={columns} />
+					:	null
+				}
 	    		</div>
             </div>
         );
