@@ -38,13 +38,18 @@ class Commitsets extends Component {
             <div className="h-100">
             	<h1>Commitsets</h1>
             	<div>
-	            	<ReactTable
-	            		showPaginationTop={false}
-	            		showPaginationBottom={false}
-	            		defaultPageSize={3}
-	            		defaultSorted={[{id: 'buildtime',desc: true}]}
-			    		data={list}
-			    		columns={columns} />
+            	{
+            		list.length
+            		? 	<ReactTable
+		            		showPaginationTop={false}
+		            		showPaginationBottom={false}
+		            		defaultPageSize={list.length}
+		            		defaultSorted={[{id: 'buildtime',desc: true}]}
+		            		previousText="Prev"
+				    		data={list}
+				    		columns={columns} />
+            		: 	null
+            	}
 	    		</div>
             </div>
         );
