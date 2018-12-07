@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import TextField from '@material-ui/core/TextField'
 
-class TextField extends Component {
+class TextInput extends Component {
     constructor() {
         super()
         this.input = null
@@ -20,17 +21,17 @@ class TextField extends Component {
     }
 
     render() {
-        const { type = 'text', disabled = false, className = '', value } = this.props
+        const { type = 'text', disabled = false, className = '', value, label } = this.props
         return (
-            <input
-                type={type}
-                disabled={disabled}
-                ref={this.thisRef}
-                className={`form-control text-field ${className}`}
+            <TextField
+                label={label}
+                className={className}
+                value={value}
+                inputRef={this.thisRef}
                 onChange={this.handleChange}
-                defaultValue={value} />
+                margin="normal" />
         );
     }
 }
 
-export default TextField
+export default TextInput
