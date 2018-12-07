@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ReactTable from 'react-table'
 import { history } from 'store'
-import TextField from 'components/inputs/TextField'
-import Btn from 'components/buttons/Btn'
+// import TextField from 'components/inputs/TextField'
+// import Btn from 'components/buttons/Btn'
 
 class Commitset extends Component {
 	componentDidMount() {
@@ -16,50 +16,75 @@ class Commitset extends Component {
 		return Object.keys(commitSet[type]).map(item => ({[type]: item, value: commitSet[type][item]}))
 	}
 
-    render() {
-    	const { commitSet } = this.props
-    	const dcallablesColumns = [{
-		    Header: 'dcallables',
-		    accessor: 'dcallables',
+	goToCommit = link => e => {
+		e.preventDefault()
+		history.push(`/commit/${encodeURIComponent(link)}`)
+	}
+
+	goToCallable = dcallable_hash => e => {
+		e.preventDefault()
+		history.push(`/callable/${dcallable_hash}`)
+	}
+
+	render() {
+		const { commitSet } = this.props
+		const link = decodeURIComponent(this.props.match.params.commitset)
+	
+		const dcallablesColumns = [{
+		    Header: 'Callable Name',
+		    accessor: 'dcallable',
 		    Cell: props => <span>{props.value}</span>
-	  	},{
-		    Header: 'value',
-		    accessor: 'value',
-		    Cell: props => <a href={props.value} target="_blank">{props.value}</a>
+		},{
+		    Header: 'Callable Hash',
+		    accessor: 'dcallable_hash',
+			Cell: props => <a href={props.value} onClick={this.goToCallable(props.value)}>{ props.value }</a>
+		},{
+		    Header: 'Commit',
+		    accessor: 'dcommit',
+		    Cell: props => <a href={props.value} onClick={this.goToCommit(props.value)}>{ props.value }</a>
 	  	}]
 
-	  	const columns = [{
-		    Header: 'dcommits',
+	  	const dcommitsColumns = [{
+		    Header: 'Commit',
 		    accessor: 'dcommits',
 		    className: 'text-center',
-		    Cell: props => <a href={props.original} target="_blank">{props.original}</a>
+		    Cell: props => <a href={props.original} onClick={this.goToCommit(props.original)}>{ props.original }</a>
 	  	}]
         return (
             <div className="h-100">
             	<div className="d-flex align-items-center">
             		<h1>Commitset </h1>
             		<div className="ml-3">
-            			<a href={decodeURIComponent(this.props.match.params.commitset)} target="_blank">{decodeURIComponent(this.props.match.params.commitset)}</a>
+            			{decodeURIComponent(this.props.match.params.commitset)}
         			</div>
         		</div>
 				<div>
-				{
-					commitSet.dcallables
-					? 	<ReactTable
-							showPagination={false}
-		            		defaultPageSize={Object.keys(commitSet.dcallables).length}
-				    		data={this.getList(commitSet, 'dcallables')}
-				    		columns={dcallablesColumns} />
-		    		: 	null
-				}
+				<h2>Commits in the Commitset</h2>
 				{
 					commitSet.dcommits
 					? 	<ReactTable
 							showPagination={false}		            		
 							defaultPageSize={commitSet.dcommits.size}
-				    		data={[...commitSet.dcommits.values()]}
-				    		columns={columns} />
+							data={[...commitSet.dcommits.values()]}
+							columns={dcommitsColumns} />
 					: 	null
+				}
+				<h2>Callables</h2>
+				{
+					commitSet.dcallables
+					? 	<ReactTable
+							showPagination={false}
+		            		defaultPageSize={commitSet.dcallables.length}
+				    		data={[...commitSet.dcallables]}
+				    		columns={dcallablesColumns} />
+		    		: 	null
+				}
+				<h2>Build Log</h2>
+				{
+					commitSet.buildlog
+					?	
+						<pre>{commitSet.buildlog}</pre>
+					:	null
 				}
 	    		</div>
             </div>

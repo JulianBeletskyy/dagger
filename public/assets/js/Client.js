@@ -14,8 +14,8 @@ class Client {
         ws.onopen = function() {
             onopen();
         };
-        
-        ws.onmessage = function (evt) {
+
+        ws.onmessage = function (evt) { 
             var received_msg = evt.data;
             if(!evt.data instanceof Blob) {
                 alert("Invalid response format received");
@@ -55,7 +55,6 @@ class Client {
         assert(typeof method === 'string', method);
         if(args == undefined) args = [];
         assert(typeof args === 'object', args);
-        console.log("Request", method, args);
         this.methods[this.msg_id_autoinc] = method;
         this.argss[this.msg_id_autoinc] = args;
         var msg = MsgpackUtils.pack({"method":method,"args":args,"msg_id":this.msg_id_autoinc});
@@ -87,6 +86,9 @@ class Client {
     }
     get_dcommit(dcommit) {
         return this._call("get_dcommit",[dcommit])
+    }
+    get_dcallable(dcallable_hash) {
+        return this._call("get_dcallable",[dcallable_hash])
     }
     get_nodes() {
         return this._call("get_nodes");

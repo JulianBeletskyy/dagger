@@ -16,6 +16,9 @@ export default {
             'path': '/commit/:commit',
             'component': 'Commit'
         }, {
+            'path': '/callable/:callable',
+            'component': 'Callable'
+        }, {
             'path': '/build-commit',
             'component': 'BuildCommit'
         }, {

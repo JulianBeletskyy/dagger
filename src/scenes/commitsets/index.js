@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ReactTable from 'react-table'
 import { history } from 'store'
-import { setAlert } from 'actions/ui'
+// import { setAlert } from 'actions/ui'
 
 class Commitsets extends Component {
 	formatDate = string => {
@@ -24,15 +24,15 @@ class Commitsets extends Component {
     render() {
     	const { list } = this.props
 	  	const columns = [{
-		    Header: 'Commitset',
-		    accessor: 'dcommitset',
-		    className: 'text-center',
-		    Cell: props => <a href={`/commitset/${props.value}`} onClick={this.goToCommitSet(props.value)}>{props.value}</a>
-	  	}, {
-		    Header: 'Build Time',
-		    accessor: 'buildtime',
-		    className: 'text-center',
-		    Cell: props => <span className='number'>{ this.formatDate(props.value)}</span>
+			Header: 'Build Time',
+			accessor: 'buildtime',
+			className: 'text-center',
+			Cell: props => <span className='number'>{ this.formatDate(props.value)}</span>
+		}, {
+			Header: 'Commitset',
+			accessor: 'dcommitset',
+			className: 'text-center',
+			Cell: props => <a href={`/commitset/${props.value}`} onClick={this.goToCommitSet(props.value)}>{props.value}</a>
 	  	}]
         return (
             <div className="h-100">

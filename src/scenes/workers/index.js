@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ReactTable from 'react-table'
+import { history } from 'store'
 
 class Workers extends Component {
 	formatDate = string => {
 		const [date, time] = string.split('T')
 		const [t] = time.split('.')
 		return `${date} ${t}`
+	}
+
+	goToCommit = link => e => {
+		e.preventDefault()
+		history.push(`/commit/${encodeURIComponent(link)}`)
 	}
 
 	componentDidMount() {
@@ -25,7 +31,7 @@ class Workers extends Component {
 		    Header: 'Commit',
 		    accessor: 'dcommit',
 		    className: 'text-center',
-		    Cell: props => <a href={props.value} target="_blank">{props.value}</a>
+		    Cell: props => <a href={"/commit/"+encodeURIComponent(props.value)} onClick={this.goToCommit(props.value)}>{ props.value }</a>
 	  	}, {
 		    Header: 'Start Time',
 		    accessor: 'start_time',

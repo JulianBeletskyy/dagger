@@ -5,6 +5,7 @@ import ui from './ui.js'
 import socket from './socket.js'
 import commits from './commits.js'
 import commitsets from './commitsets.js'
+import callables from './callable.js'
 import workers from './workers.js'
 import nodes from './nodes.js'
 
@@ -14,6 +15,7 @@ const reducer = combineReducers({
     socket,
     commitsets,
     commits,
+    callables,
     workers,
     nodes,
 })
