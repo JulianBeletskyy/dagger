@@ -1,14 +1,14 @@
-import * as types from 'actions/types'
-import { HOST } from 'config'
-import { responseHandler, onOpen } from 'api'
+import * as types from 'actions/types';
+import { HOST } from 'config';
+import { responseHandler, onOpen } from 'api';
 
 const initialState = {
 	ping: 0,
 	connection: false,
-	client: new window.globalClient(HOST, onOpen, responseHandler),
+	client: {},
 	ready: false,
 	start_pings: {}
-}
+};
 
 const socket = (socket = initialState, action = {}) => {
 	switch (action.type) {
@@ -32,6 +32,10 @@ const socket = (socket = initialState, action = {}) => {
 		case types.SET_START_PING:
 			return Object.assign({}, socket, {
 				start_pings: {...socket.start_pings, [action.id]: action.date}
+			})
+		case types.SET_CLIENT:
+			return Object.assign({}, socket, {
+				client: action.client
 			})
 		default:
             return socket;

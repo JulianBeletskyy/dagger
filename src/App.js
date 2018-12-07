@@ -11,6 +11,9 @@ import 'react-table/react-table.css'
 import './App.css'
 import { setStartPing } from 'actions'
 import Layout from 'layouts'
+import { setClient } from 'actions'
+import { responseHandler, onOpen } from 'api'
+import { HOST } from 'config'
 
 class App extends Component {
     constructor(props) {
@@ -19,9 +22,6 @@ class App extends Component {
         history.listen(({pathname}) => {
             dispatch(setLocation(pathname))
         })
-        String.prototype.replaceAll = function(search, replacement) {
-            return this.replace(new RegExp(search, 'g'), replacement)
-        };
     }
 
     startPing = () => {
@@ -39,6 +39,12 @@ class App extends Component {
     }
 
     renderRoutes = (route, i) => <Route key={i} path={route.path} exact component={pages[route.component]} />
+
+    componentDidMount() {
+        const { dispatch } = this.props
+        const client = new window.globalClient(HOST, onOpen, responseHandler)
+        dispatch(setClient(client))
+    }
 
     render() {
         const { token } = this.props

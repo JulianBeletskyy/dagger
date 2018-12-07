@@ -56,6 +56,13 @@ const get_workersHandler = (id, response, args) => {
 	}
 }
 
+const get_worker_logsHandler = (id, response, args) => {
+	return {
+		type: types.SET_WORKER_LOGS,
+		data: response,
+	}
+}
+
 const get_nodesHandler = (id, response, args) => {
 	return {
 		type: types.SET_NODES,
@@ -82,4 +89,5 @@ export default {
 	get_workersHandler,
 	get_nodesHandler,
 	get_nodeHandler,
+	get_worker_logsHandler,
 }

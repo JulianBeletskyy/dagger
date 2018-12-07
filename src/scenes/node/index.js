@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import JSONTree from 'react-json-tree'
 
 class Node extends Component {
 	componentDidMount() {
@@ -9,11 +10,10 @@ class Node extends Component {
 
 	render() {
 		const { node } = this.props
-		console.log(node)
 		return (
-			<div className="h-100">
+			<div className="h-100 node-tree">
             	<h1>Node</h1>
-            	
+            	<JSONTree invertTheme={false} data={node} />
             </div>
 		)
 	}

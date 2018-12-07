@@ -2,6 +2,7 @@ import * as types from 'actions/types'
 
 const initialState = {
 	list: [],
+	logs: '',
 }
 
 export default function workers(workers = initialState, action = {}) {
@@ -10,7 +11,10 @@ export default function workers(workers = initialState, action = {}) {
 			return Object.assign({}, workers, {
 				list: action.data
 			})
-		
+		case types.SET_WORKER_LOGS:
+			return Object.assign({}, workers, {
+				logs: action.data
+			})
 		default:
             return workers
 	}

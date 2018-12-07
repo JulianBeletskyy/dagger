@@ -1,5 +1,6 @@
 .App {
     height: 100vh;
+    overflow: hidden;
 }
 
 button:focus {
@@ -27,6 +28,9 @@ button:focus {
 .text-grey {
     color: rgb(116,119,126);
 }
+.node-tree ul {
+    background-color: #fff !important;
+}
 
 .btn-cancel {
     background-color: transparent;
@@ -48,6 +52,10 @@ button:focus {
     min-height: calc(100vh - 56px);
     background-color: rgb(76, 93, 133);
     height: 100%;
+}
+.wrap-main {
+    overflow: auto;
+    height: 100vh;
 }
 
 .pointer {

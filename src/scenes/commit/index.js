@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ReactTable from 'react-table'
 import { history } from 'store'
+import handlers from 'actions/socket'
 
 class Commit extends Component {
 	getList = commit => {
@@ -11,6 +12,11 @@ class Commit extends Component {
 	goToCallable = dcallable_hash => e => {
 		e.preventDefault()
 		history.push(`/callable/${dcallable_hash}`)
+	}
+
+	componentWillUnmount() {
+		const { dispatch } = this.props
+		dispatch(handlers.get_dcommitHandler(false, {}))
 	}
 
 	componentDidMount() {
@@ -23,7 +29,6 @@ class Commit extends Component {
     	const {commit} = this.props
     	const link = decodeURIComponent(this.props.match.params.commit)
     	const columns = [{
-    		// Header: <a href={link} target="_blank">{link}</a>, 
     		columns: [{
 			    Header: 'Callable',
 			    accessor: 'dcallables',
@@ -50,7 +55,7 @@ class Commit extends Component {
             		commit.dcallables
             		?	<ReactTable
 							showPagination={false}
-		            		// defaultPageSize={Object.keys(commit.dcallables).length} // TODO commenting out because of bug: if you click to the page multiple times with different table sizes then seometimes this gets stuck with a previous table size and cuts off some results
+		            		defaultPageSize={Object.keys(commit.dcallables).length}
 				    		data={this.getList(commit)}
 				    		columns={columns} />
             		: 	null

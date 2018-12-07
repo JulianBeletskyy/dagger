@@ -1,12 +1,11 @@
 import * as types from './types'
 import Cookies from 'js-cookie'
 
-export const setClient = client => dispatch => {
-	dispatch({
+export const setClient = client => {
+	return {
 		type: types.SET_CLIENT,
 		client,
-	})
-	return Promise.resolve(true)
+	}
 }
 
 export const login = () => dispatch => {

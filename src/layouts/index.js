@@ -21,7 +21,7 @@ class Layout extends Component {
 						    </aside>
 					    </div>
 					    <div className="col-7 col-sm-8 col-md-9 col-lg-10">
-					    	<main>
+					    	<main className="wrap-main">
 						    	{ children }
 						    </main>
 					    </div>

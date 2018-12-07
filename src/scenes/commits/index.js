@@ -2,13 +2,18 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ReactTable from 'react-table'
 import { history } from 'store'
-
+import handlers from 'actions/socket'
 
 class Commits extends Component {
 
 	goToCommit = link => e => {
 		e.preventDefault()
 		history.push(`/commit/${encodeURIComponent(link)}`)
+	}
+
+	componentWillUnmount() {
+		const { dispatch } = this.props
+		dispatch(handlers.get_dcommitsHandler(false, []))
 	}
 
 	componentDidMount() {
@@ -45,7 +50,7 @@ class Commits extends Component {
 					?	<ReactTable
 							showPaginationTop={false}
 							showPaginationBottom={false}
-							// defaultPageSize={list.length} // TODO commenting out because of bug: if you click to the page multiple times with different table sizes then seometimes this gets stuck with a previous table size and cuts off some results
+							defaultPageSize={list.length}
 							data={list}
 							columns={columns} />
 					:	null
