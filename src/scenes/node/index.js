@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import ReactTable from 'react-table'
 
 class Node extends Component {
 	componentDidMount() {
@@ -10,7 +9,6 @@ class Node extends Component {
 
 	render() {
 		const { node } = this.props
-		
 		console.log(node)
 		return (
 			<div className="h-100">

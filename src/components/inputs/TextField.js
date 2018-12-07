@@ -25,6 +25,8 @@ class TextInput extends Component {
         return (
             <TextField
                 label={label}
+                type={type}
+                disabled={disabled}
                 className={className}
                 value={value}
                 inputRef={this.thisRef}

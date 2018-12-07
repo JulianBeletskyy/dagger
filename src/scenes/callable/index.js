@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import ReactTable from 'react-table'
 
 class Callable extends Component {
 	componentDidMount() {
@@ -12,19 +11,19 @@ class Callable extends Component {
 	render() {
 		const { callable } = this.props
         const dcallable_hash = this.props.match.params.callable
-    	const columns = [{
-    		columns: [{
-			    Header: 'K',
-			    accessor: 'k',
-			    className: 'text-center',
-			    Cell: props => <span>{props.value}</span>
-		  	},{
-			    Header: 'V',
-			    accessor: 'v',
-			    className: 'text-center',
-			    Cell: props => <span>{props.value}</span>
-		  	}]
-        }]
+    	// const columns = [{
+    	// 	columns: [{
+			  //   Header: 'K',
+			  //   accessor: 'k',
+			  //   className: 'text-center',
+			  //   Cell: props => <span>{props.value}</span>
+		  	// },{
+			  //   Header: 'V',
+			  //   accessor: 'v',
+			  //   className: 'text-center',
+			  //   Cell: props => <span>{props.value}</span>
+		  	// }]
+     //    }]
         console.log("callable/index.js line 28", callable);
         return (
             <div className="h-100">

@@ -28,7 +28,6 @@ class Commitset extends Component {
 
 	render() {
 		const { commitSet } = this.props
-		const link = decodeURIComponent(this.props.match.params.commitset)
 	
 		const dcallablesColumns = [{
 		    Header: 'Callable Name',
