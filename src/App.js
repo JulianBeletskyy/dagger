@@ -55,7 +55,6 @@ class App extends Component {
                                     </Switch>
                                :    null 
                             }
-                            
                         </Layout>
                     :   <Switch>
                             { routing[key].map((route, i) => this.renderRoutes(route, i)) }
