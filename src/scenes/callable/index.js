@@ -11,20 +11,6 @@ class Callable extends Component {
 	render() {
 		const { callable } = this.props
         const dcallable_hash = this.props.match.params.callable
-    	// const columns = [{
-    	// 	columns: [{
-			  //   Header: 'K',
-			  //   accessor: 'k',
-			  //   className: 'text-center',
-			  //   Cell: props => <span>{props.value}</span>
-		  	// },{
-			  //   Header: 'V',
-			  //   accessor: 'v',
-			  //   className: 'text-center',
-			  //   Cell: props => <span>{props.value}</span>
-		  	// }]
-     //    }]
-        console.log("callable/index.js line 28", callable);
         return (
             <div className="h-100">
                 <h1>Callable: {dcallable_hash}</h1>
@@ -32,19 +18,7 @@ class Callable extends Component {
                 <h5>type</h5>{callable.type}
                 <h5>src</h5><pre>{callable.source}</pre>
             </div>
-
-            // <div className="h-100">
-            //     {
-            //         commit.dcallables
-            //         ?	<ReactTable
-            //                 showPagination={false}
-            //                 defaultPageSize={Object.keys(commit.dcallables).length}
-            //                 data={this.getList(commit)}
-            //                 columns={columns} />
-            //         : 	null
-            //     }
-            // </div>
-    );
+        );
     }
 }
 

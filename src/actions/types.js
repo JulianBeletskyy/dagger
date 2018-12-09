@@ -19,6 +19,7 @@ export const SET_COMMIT = 'SET_COMMIT'
 export const SET_CALLABLE = 'SET_CALLABLE'
 export const SET_BUILD_COMMIT = 'SET_BUILD_COMMIT'
 export const SET_WORKERS = 'SET_WORKERS'
+export const SET_WORKER = 'SET_WORKER'
 export const SET_WORKER_LOGS = 'SET_WORKER_LOGS'
 
 export const SET_NODES = 'SET_NODES'

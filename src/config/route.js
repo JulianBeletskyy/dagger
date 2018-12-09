@@ -25,6 +25,9 @@ export default {
             'path': '/workers',
             'component': 'Workers',
         }, {
+            'path': '/worker/:worker_id',
+            'component': 'Worker'
+        }, {
             'path': '/workers-logs',
             'component': 'WorkersLogs',
         }, {

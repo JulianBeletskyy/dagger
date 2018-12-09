@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ReactTable from 'react-table'
 import { history } from 'store'
-// import TextField from 'components/inputs/TextField'
-// import Btn from 'components/buttons/Btn'
 
 class Commitset extends Component {
 	componentDidMount() {

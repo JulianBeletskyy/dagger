@@ -107,6 +107,9 @@ class Client {
     get_workers() {
         return this._call("get_workers");
     }
+    get_worker(worker_id) {
+        return this._call("get_worker",[worker_id])
+    }
     get_worker_logs() {
         return this._call("get_worker_logs");
     }
