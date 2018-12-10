@@ -59,7 +59,7 @@ button:focus {
 }
 .wrap-main {
     overflow: auto;
-    height: 100vh;
+    height: 100%;
 }
 
 .pointer {
