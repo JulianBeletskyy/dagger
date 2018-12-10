@@ -43,7 +43,6 @@ class Commits extends Component {
 		  }]
         return (
             <div className="h-100">
-            	<h1>Commits</h1>
             	<div>
 				{
 	            	list && list.length>0

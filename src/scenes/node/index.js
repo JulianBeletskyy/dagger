@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import JSONTree from 'react-json-tree'
 import { history } from 'store'
-
+import hljs from 'highlight.js'
 
 class Node extends Component {
 	
 	componentDidMount() {
 		const { client } = this.props
 		client.get_node(this.props.match.params.id * 1)
+		hljs.configure({languages: ['java', 'python']})
 	}
 
 	componentDidUpdate() {
@@ -72,7 +73,6 @@ class Node extends Component {
 					?	<div><h5>fiddles</h5>{JSON.stringify(node.fiddles.v)}</div>
 					:	null
 				}
-				<h5>source</h5><pre>{node.source}</pre>
 				{
 					node.stdout && node.stdout.length
 					?	<div><h5>stdout</h5><pre>{node.stdout}</pre></div>
@@ -88,7 +88,16 @@ class Node extends Component {
 					?	<div><h5>stacktrace</h5><pre>{node.stacktrace}</pre></div>
 					:	null
 				}
+				<h5>source</h5>
+				<pre className="hljs-comment">(Language: {node.source ? hljs.highlightAuto(node.source).language : '-'})</pre>
+				{
+					node.source
+					? 	<pre><code dangerouslySetInnerHTML={{__html: `${hljs.highlightAuto(node.source).value}` }}/></pre>
+					: 	null
+				}
+				
 				<JSONTree invertTheme={false} data={node} />
+
             </div>
 		)
 	}

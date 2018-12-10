@@ -11,7 +11,6 @@ class WorkersLogs extends Component {
     	const { logs } = this.props
         return (
             <div className="h-100">
-            	<h1>Workers Logs</h1>
             	<pre>
             		{logs}
             	</pre>

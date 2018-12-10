@@ -50,7 +50,6 @@ class Commit extends Component {
 		  }]
         return (
             <div className="h-100">
-            	<h1>Commit {link}</h1>
             	{
             		commit.dcallables
             		?	<ReactTable

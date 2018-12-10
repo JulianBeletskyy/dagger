@@ -3,6 +3,7 @@ import { setReady } from 'actions'
 import handlers from 'actions/socket'
 
 export const responseHandler = (msg_id, method, args, response) => {
+
     if(method!=="ping")
         console.log(msg_id, method, args, response)
     const handler = `${method}Handler`

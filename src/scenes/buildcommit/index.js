@@ -29,16 +29,18 @@ class BuildCommit extends Component {
     	const { buildCommit } = this.props
         return (
             <div className="h-100">
-            	<h1>Build Commitset</h1>
-            	<form className="form-inline">
-					  <div className="form-group mb-2">
-					    	<label className="text-grey">Commitset</label>
-					  </div>
-					  <div className="form-group mx-sm-3 mb-2">
-					    	<TextField inputRef={ref => this.commit = ref} label="[Git URL]#[commit hash]" />
-					  </div>
-				  	<Btn title="Ok" className="mb-2" onClick={this.createCommit} />
-				</form>
+            	<div className="row">
+				  	<div className="col-sm-1 d-flex align-items-end">
+				    	<label className="text-grey mb-1">Commitset</label>
+				  	</div>
+				  	<div className="col-sm-4">
+				    	<TextField inputRef={ref => this.commit = ref} className="form-control my-0" label="[Git URL]#[commit hash]" />
+				  	</div>
+				  	<div className="col-sm-1 d-flex align-items-center">
+				  		<Btn title="Ok" onClick={this.createCommit} />
+			  		</div>
+				</div>
+				
 				{
 					this.state.waitResponse
 					? 	<div><div className="layout-building-alert"></div><div className="inner-confirm-alert">Building...</div></div>
