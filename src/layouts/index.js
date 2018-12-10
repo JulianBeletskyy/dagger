@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import Header from 'components/header'
 import SideMenu from 'components/menu/side'
 import ConfirmAlert from 'components/confirm'
+import Toolbar from '@material-ui/core/Toolbar'
+import Typography from '@material-ui/core/Typography'
 
 class Layout extends Component {
 	render() {
@@ -14,7 +16,12 @@ class Layout extends Component {
 			    <div className="container-fluid bg-white">
 				    <div className="row">
 				    	<div className="col-5 col-sm-4 col-md-3 col-lg-2 pl-0 pr-0">
-						    <aside className="h-100">
+						    <aside className="h-100 border-right">
+						    	<Toolbar className="border-bottom">
+						    		<Typography variant="h6" className="text-secondary">
+									    Dagger4
+								  	</Typography>
+				                </Toolbar>
 						    	<SideMenu />
 						    </aside>
 					    </div>

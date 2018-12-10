@@ -3,6 +3,10 @@
     overflow: hidden;
 }
 
+.text-blue span {
+    color: #2196f3;
+}
+
 button:focus {
     outline: unset;
 }

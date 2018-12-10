@@ -4,6 +4,10 @@ import { SIDE_MENU_LIST } from 'config'
 import { history } from 'store'
 import { toggleConfirmAlert } from 'actions/ui'
 import { setConnection } from 'actions'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
+import ListItemText from '@material-ui/core/ListItemText'
 
 class PublicHeader extends Component {
 
@@ -25,14 +29,21 @@ class PublicHeader extends Component {
 
 	renderMenuList = (item, i) => {
         const [,location] = history.location.pathname.split('/')
-		return <div key={i} className={`item-side-menu ${item.link === location ? 'active' : ''}`} onClick={this.handleClick(item)}>{item.title}</div>
+        return  <ListItem 
+                    key={i}
+                    button
+                    onClick={this.handleClick(item)}
+                    selected={item.link === location}>
+                    <ListItemText primary={item.title} />
+                </ListItem>
 	}
 
     render() {
+        console.log(this.props)
         return (
-            <div className="wrap-side-menu p-3 text-white">
-	            { SIDE_MENU_LIST.map((item, i) => this.renderMenuList(item, i)) }
-            </div>
+            <List component="nav">
+                { SIDE_MENU_LIST.map((item, i) => this.renderMenuList(item, i)) }
+            </List>
         );
     }
 }
