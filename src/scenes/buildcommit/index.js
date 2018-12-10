@@ -31,10 +31,10 @@ class BuildCommit extends Component {
             <div className="h-100">
             	<form className="form-inline">
 					  <div className="form-group mb-2">
-					    	<label className="text-grey">Build new commit</label>
+					    	<label className="text-grey">Commitset</label>
 					  </div>
 					  <div className="form-group mx-sm-3 mb-2">
-					    	<TextField inputRef={ref => this.commit = ref} />
+					    	<TextField inputRef={ref => this.commit = ref} label="[Git URL]#[commit hash]" />
 					  </div>
 				  	<Btn title="Ok" className="mb-2" onClick={this.createCommit} />
 				</form>

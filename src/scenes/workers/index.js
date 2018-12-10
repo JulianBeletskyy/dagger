@@ -10,9 +10,14 @@ class Workers extends Component {
 		return `${date} ${t}`
 	}
 
-	goToCommit = link => e => {
+	goToCommit = commit => e => {
 		e.preventDefault()
-		history.push(`/commit/${encodeURIComponent(link)}`)
+		history.push(`/commit/${encodeURIComponent(commit)}`)
+	}
+
+	goToWorker = worker_id => e => {
+		e.preventDefault()
+		history.push(`/worker/${worker_id}`)
 	}
 
 	componentDidMount() {
@@ -26,7 +31,7 @@ class Workers extends Component {
 		    Header: 'Worker ID',
 		    accessor: 'worker_id',
 		    className: 'text-center',
-		    Cell: props => <span>{props.value}</span>
+		    Cell: props => <a href={"/worker/"+props.value} onClick={this.goToWorker(props.value)}>{ props.value }</a>
 	  	}, {
 		    Header: 'Commit',
 		    accessor: 'dcommit',

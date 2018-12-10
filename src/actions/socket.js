@@ -56,6 +56,13 @@ const get_workersHandler = (id, response, args) => {
 	}
 }
 
+const get_workerHandler = (id, response, args) => {
+	return {
+		type: types.SET_WORKER,
+		data: response,
+	}
+}
+
 const get_worker_logsHandler = (id, response, args) => {
 	return {
 		type: types.SET_WORKER_LOGS,
@@ -87,6 +94,7 @@ export default {
 	get_dcommitHandler,
 	get_dcallableHandler,
 	get_workersHandler,
+	get_workerHandler,
 	get_nodesHandler,
 	get_nodeHandler,
 	get_worker_logsHandler,

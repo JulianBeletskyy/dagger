@@ -17,27 +17,20 @@ class Nodes extends Component {
     render() {
     	const { list } = this.props
     	const columns = [{
-		    Header: 'ID',
+		    Header: 'Id',
 		    accessor: 'id',
 		    className: 'text-center',
 		    Cell: props => <a href={`/node/${props.value}`} onClick={this.goToNode(props.value)}>{props.value}</a>
-	  	}, {
-		    Header: 'Value',
-		    accessor: 'value',
-		    className: 'text-center',
-		    Cell: props => <span>{props.value}</span>
-	  	}, {
-		    Header: 'args',
-		    accessor: 'args',
-		    className: 'text-center',
-		    Cell: props => {
-		    	return <span>{ props.value }</span>
-	    	}
-	  	}, {
-		    Header: 'func',
-		    accessor: 'func',
-		    className: 'text-center',
-		    Cell: props => <span>{ props.value }</span>
+		}, {
+			Header: 'call',
+			accessor: 'func',
+			className: 'text-center',
+			Cell: props => <span>{ props.original.func + "(" + props.original.args.join(",") + ")" }</span>
+		}, {
+		  Header: 'value',
+		  accessor: 'value',
+		  className: 'text-center',
+		  Cell: props => <span>{props.value}</span>
 	  	}, {
 		    Header: 'dfuntype',
 		    accessor: 'dfuntype',
@@ -55,10 +48,11 @@ class Nodes extends Component {
             	{
             		list.length
             		? 	<ReactTable
-		            		showPaginationTop={true}
+		            		showPaginationTop={false}
 		            		showPaginationBottom={false}
-		            		defaultPageSize={10}
-				    		data={list}
+		            		defaultPageSize={list.length}
+							data={list}
+							filterable={true}
 				    		columns={columns} />
             		: 	null
             	}

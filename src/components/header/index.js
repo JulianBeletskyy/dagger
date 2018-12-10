@@ -50,7 +50,6 @@ class PublicHeader extends Component {
 			            	</div>
 			            	<div  className="col-1">
 			            		<IconButton
-
 									aria-label="More"
 									aria-owns={open ? 'menu' : undefined}
 									aria-haspopup="true"

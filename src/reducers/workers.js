@@ -3,6 +3,7 @@ import * as types from 'actions/types'
 const initialState = {
 	list: [],
 	logs: '',
+    worker: {},
 }
 
 export default function workers(workers = initialState, action = {}) {
@@ -15,6 +16,10 @@ export default function workers(workers = initialState, action = {}) {
 			return Object.assign({}, workers, {
 				logs: action.data
 			})
+		case types.SET_WORKER:
+            return Object.assign({}, workers, {
+                worker: action.data
+            })
 		default:
             return workers
 	}
