@@ -5,6 +5,7 @@ import { history } from 'store'
 
 class Workers extends Component {
 	formatDate = string => {
+		if(!string) return null;
 		const [date, time] = string.split('T')
 		const [t] = time.split('.')
 		return `${date} ${t}`
@@ -41,11 +42,13 @@ class Workers extends Component {
 		    Header: 'Start Time',
 		    accessor: 'start_time',
 		    className: 'text-center',
+		    maxWidth: 200,
 		    Cell: props => <span>{ this.formatDate(props.value) }</span>
 	  	}, {
 		    Header: 'Stop Time',
 		    accessor: 'stop_time',
 		    className: 'text-center',
+		    maxWidth: 200,
 		    Cell: props => <span>{ this.formatDate(props.value) }</span>
 	  	}]
         return (

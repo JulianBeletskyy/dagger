@@ -72,8 +72,22 @@ class Node extends Component {
 					?	<div><h5>fiddles</h5>{JSON.stringify(node.fiddles.v)}</div>
 					:	null
 				}
-				<h5>source</h5>
-				<pre>{node.source}</pre>
+				<h5>source</h5><pre>{node.source}</pre>
+				{
+					node.stdout && node.stdout.length
+					?	<div><h5>stdout</h5><pre>{node.stdout}</pre></div>
+					:	null
+				}
+				{
+					node.stderr && node.stderr.length
+					?	<div><h5>stderr</h5><pre>{node.stderr}</pre></div>
+					:	null
+				}
+				{
+					node.stacktrace && node.stacktrace.length
+					?	<div><h5>stacktrace</h5><pre>{node.stacktrace}</pre></div>
+					:	null
+				}
 				<JSONTree invertTheme={false} data={node} />
             </div>
 		)

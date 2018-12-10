@@ -13,10 +13,15 @@ class Worker extends Component {
 	}
 
 	componentDidUpdate() {
-		// if(this.props.match.params.worker_id!=this.props.worker.worker_id) {
-		// 	const { client } = this.props
-		// 	client.get_worker(this.props.match.params.worker_id)
-		// }
+		if(this.props.match.params.worker_id!=this.props.worker.worker_id) {
+			const { client } = this.props
+			client.get_worker(this.props.match.params.worker_id)
+		}
+	}
+
+	goToCommit = link => e => {
+		e.preventDefault()
+		history.push(`/commit/${encodeURIComponent(link)}`)
 	}
 
 	render() {
@@ -37,10 +42,13 @@ class Worker extends Component {
 		},{
 		    Header: 'V',
 		    accessor: 'v',
-		    Cell: props => <span>{props.value}</span>
+		    Cell: props => <div>{
+				props.row.k === 'dcommit'
+				?	<a href={props.value} onClick={this.goToCommit(props.value)}>{ props.value }</a>
+				:	<span>{props.value}</span>
+			}</div>
 		}]
 
-		console.log('render', worker);
 		return (
 			<div className="h-100 node-tree">
 				<h1>Worker {worker.worker_id}</h1>

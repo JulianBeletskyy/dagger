@@ -1,6 +1,4 @@
 import * as types from 'actions/types';
-import { HOST } from 'config';
-import { responseHandler, onOpen } from 'api';
 
 const initialState = {
 	ping: 0,
