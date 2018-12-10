@@ -52,7 +52,6 @@ class Commitset extends Component {
         return (
             <div className="h-100">
             	<div className="d-flex align-items-center">
-            		<h1>Commitset </h1>
             		<div className="ml-3">
             			{decodeURIComponent(this.props.match.params.commitset)}
         			</div>

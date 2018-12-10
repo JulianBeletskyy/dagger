@@ -2,10 +2,12 @@ export default {
     'private': [
         {
             'path': '/',
-            'component': 'Main'
+            'component': 'Main',
+            'name': 'Main',
         }, {
             'path': '/commitsets',
-            'component': 'Commitsets'
+            'component': 'Commitsets',
+            'name': 'Commitsets',
         }, {
             'path': '/commitset/:commitset',
             'component': 'Commitset'
@@ -32,7 +34,8 @@ export default {
             'component': 'Nodes'
         }, {
             'path': '/node/:id',
-            'component': 'Node'
+            'component': 'Node',
+            'name': 'Node',
         }, {
             'path': '*',
             'component': 'NotFound'

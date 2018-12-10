@@ -36,7 +36,6 @@ class Commitsets extends Component {
 	  	}]
         return (
             <div className="h-100">
-            	<h1>Commitsets</h1>
             	<div>
             	{
             		list.length

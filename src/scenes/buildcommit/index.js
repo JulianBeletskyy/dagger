@@ -29,7 +29,6 @@ class BuildCommit extends Component {
     	const { buildCommit } = this.props
         return (
             <div className="h-100">
-            	<h1>Build Commit</h1>
             	<form className="form-inline">
 					  <div className="form-group mb-2">
 					    	<label className="text-grey">Build new commit</label>

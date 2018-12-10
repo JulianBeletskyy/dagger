@@ -14,6 +14,14 @@ import Layout from 'layouts'
 import { setClient } from 'actions'
 import { responseHandler, onOpen } from 'api'
 import { HOST } from 'config'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import blue from '@material-ui/core/colors/blue'
+
+const theme = createMuiTheme({
+    palette: {
+        primary: blue,
+    },
+})
 
 class App extends Component {
     constructor(props) {
@@ -38,7 +46,7 @@ class App extends Component {
         }
     }
 
-    renderRoutes = (route, i) => <Route key={i} path={route.path} exact component={pages[route.component]} />
+    renderRoutes = (route, i) => <Route key={i} path={route.path} name={route.name} exact component={pages[route.component]} />
 
     componentDidMount() {
         const { dispatch } = this.props
@@ -50,26 +58,28 @@ class App extends Component {
         const { token } = this.props
         const key = token ? 'private' : 'public'
         return (
-            <div className="App">
-                {
-                    token
-                    ?   <Layout>
-                            {
-                               this.props.ready
-                               ?    <Switch>
-                                        { routing[key].map((route, i) => this.renderRoutes(route, i)) }
-                                    </Switch>
-                               :    null 
-                            }
-                        </Layout>
-                    :   <Switch>
-                            { routing[key].map((route, i) => this.renderRoutes(route, i)) }
-                            <Redirect to={'/'}/>
-                        </Switch>
-                }
-                <Alert />
-                <Modal />
-            </div>
+            <MuiThemeProvider theme={theme}>
+                <div className="App">
+                    {
+                        token
+                        ?   <Layout>
+                                {
+                                   this.props.ready
+                                   ?    <Switch>
+                                            { routing[key].map((route, i) => this.renderRoutes(route, i)) }
+                                        </Switch>
+                                   :    null 
+                                }
+                            </Layout>
+                        :   <Switch>
+                                { routing[key].map((route, i) => this.renderRoutes(route, i)) }
+                                <Redirect to={'/'}/>
+                            </Switch>
+                    }
+                    <Alert />
+                    <Modal />
+                </div>
+            </MuiThemeProvider>
         );
     }
 }

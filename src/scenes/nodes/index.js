@@ -51,7 +51,6 @@ class Nodes extends Component {
 	  	}]
         return (
             <div className="h-100">
-            	<h1>Nodes</h1>
             	<div>
             	{
             		list.length

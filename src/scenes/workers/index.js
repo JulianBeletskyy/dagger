@@ -45,7 +45,6 @@ class Workers extends Component {
 	  	}]
         return (
             <div className="h-100">
-            	<h1>Workers</h1>
             	<div>
             	{
             		list.length

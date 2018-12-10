@@ -12,7 +12,6 @@ class Node extends Component {
 		const { node } = this.props
 		return (
 			<div className="h-100 node-tree">
-            	<h1>Node</h1>
             	<JSONTree invertTheme={false} data={node} />
             </div>
 		)
