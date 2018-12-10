@@ -17,7 +17,7 @@ class Nodes extends Component {
     render() {
     	const { list } = this.props
     	const columns = [{
-		    Header: 'Id',
+		    Header: 'id',
 		    accessor: 'id',
 		    className: 'text-center',
 		    Cell: props => <a href={`/node/${props.value}`} onClick={this.goToNode(props.value)}>{props.value}</a>
@@ -31,11 +31,11 @@ class Nodes extends Component {
 		  accessor: 'value',
 		  className: 'text-center',
 		  Cell: props => <span>{props.value}</span>
-	  	}, {
-		    Header: 'dfuntype',
-		    accessor: 'dfuntype',
-		    className: 'text-center',
-		    Cell: props => <span>{ props.value }</span>
+	  	// }, {
+		//     Header: 'dfuntype',
+		//     accessor: 'dfuntype',
+		//     className: 'text-center',
+		//     Cell: props => <span>{ props.value }</span>
 	  	}, {
 		    Header: 'dstatus',
 		    accessor: 'dstatus',

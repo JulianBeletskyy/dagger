@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 import JSONTree from 'react-json-tree'
 import { history } from 'store'
 import hljs from 'highlight.js'
+import Table from '@material-ui/core/Table';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+import TableBody from '@material-ui/core/TableRow';
 
 class Node extends Component {
 	
@@ -31,74 +35,94 @@ class Node extends Component {
 			return null
 		}
 		return (
-			<div className="h-100 node-tree">
-				<h1>Node {node.id}</h1>
-				<h5>status</h5>
-				{node.dstatus.s}
-				<h5>type</h5>
-				{node.dfuntype.s}
-				<h5>name</h5>
-				{node.func + "(" + node.args.join(", ") + ")"}
-				{
-					node.dfuntype.s === "FUNCTION"
-					? 	<div><h5>ts</h5>{node.ts}</div>
-					:	null
-				}
-				<h5>value</h5>
-				{node.value}
-				{
-					Object.keys(node.dep_callers).length > 0
-					? 	<div>
-							<h5>parents</h5>
-							{Object.keys(node.dep_callers).map(function(dep, idx){
-								var n = node.dep_callers[dep]
-								return <li key={idx}><a href={`/node/${dep}`} onClick={goToNode(dep)}>{n.func+"("+n.args.join(",")+"): "+n.value}</a></li>;
-					  		})}
-					  	</div>
-					:	null
-				}
-				{
-					Object.keys(node.dep_callees).length > 0
-					? 	<div>
-							<h5>children</h5>
-							{Object.keys(node.dep_callees).map(function(dep, idx){
-								var n = node.dep_callees[dep]
-								return <li key={idx}><a href={`/node/${dep}`} onClick={goToNode(dep)}>{n.func+"("+n.args.join(",")+"): "+n.value}</a></li>;
-							})}
-					  	</div>
-					:	null
-				}
-				{
-					node.fiddles.v.length > 0
-					?	<div><h5>fiddles</h5>{JSON.stringify(node.fiddles.v)}</div>
-					:	null
-				}
-				{
-					node.stdout && node.stdout.length
-					?	<div><h5>stdout</h5><pre>{node.stdout}</pre></div>
-					:	null
-				}
-				{
-					node.stderr && node.stderr.length
-					?	<div><h5>stderr</h5><pre>{node.stderr}</pre></div>
-					:	null
-				}
-				{
-					node.stacktrace && node.stacktrace.length
-					?	<div><h5>stacktrace</h5><pre>{node.stacktrace}</pre></div>
-					:	null
-				}
-				<h5>source</h5>
-				<pre className="hljs-comment">(Language: {node.source ? hljs.highlightAuto(node.source).language : '-'})</pre>
-				{
-					node.source
-					? 	<pre><code dangerouslySetInnerHTML={{__html: `${hljs.highlightAuto(node.source).value}` }}/></pre>
-					: 	null
-				}
-				
-				<JSONTree invertTheme={false} data={node} />
-
-            </div>
+            <Table>
+                <TableBody>
+                    <TableRow>
+                        <TableCell component="th">id</TableCell>
+                        <TableCell>{node.id}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell component="th">status</TableCell>
+                        <TableCell>{node.dstatus.s}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell component="th">call</TableCell>
+                        <TableCell>{node.func + "(" + node.args.join(", ") + ")"}
+						{
+							node.dfuntype.s === "FUNCTION"
+							? 	<div><h5>ts</h5>{node.ts}</div>
+							:	null
+						}
+						</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell component="th">value</TableCell>
+                        <TableCell>{node.value}</TableCell>
+                    </TableRow>
+					{
+						Object.keys(node.dep_callers).length > 0
+						? 	<TableRow>
+								<TableCell component="th">parents</TableCell>
+								<TableCell>
+								{Object.keys(node.dep_callers).map(function(dep, idx){
+									var n = node.dep_callers[dep]
+									return <li key={idx}><a href={`/node/${dep}`} onClick={goToNode(dep)}>{n.func+"("+n.args.join(",")+"): "+n.value}</a></li>;
+								})}
+								</TableCell>
+							</TableRow>
+						:	null
+					}
+					{
+						Object.keys(node.dep_callees).length > 0
+						? 	<TableRow>
+								<TableCell component="th">children</TableCell>
+								<TableCell>
+								{Object.keys(node.dep_callees).map(function(dep, idx){
+									var n = node.dep_callees[dep]
+									return <li key={idx}><a href={`/node/${dep}`} onClick={goToNode(dep)}>{n.func+"("+n.args.join(",")+"): "+n.value}</a></li>;
+								})}
+								</TableCell>
+							</TableRow>
+						:	null
+					}
+					{
+						node.fiddles.v.length > 0
+						?	<TableRow>
+								<TableCell component="th">fiddles</TableCell>
+								<TableCell>{JSON.stringify(node.fiddles.v)}</TableCell>
+							</TableRow>
+						:	null
+					}
+					{
+						node.stdout && node.stdout.length
+						?	<TableRow><TableCell component="th">stdout</TableCell>
+							<TableCell><pre>{node.stdout}</pre></TableCell>
+							</TableRow>
+						:	null
+					}
+					{
+						node.stderr && node.stderr.length
+						?	<TableRow><TableCell component="th">stderr</TableCell><TableCell><pre>{node.stderr}</pre></TableCell></TableRow>
+						:	null
+					}
+					{
+						node.stacktrace && node.stacktrace.length
+						?	<TableRow><TableCell component="th">stacktrace</TableCell><TableCell><pre>{node.stacktrace}</pre></TableCell></TableRow>
+						:	null
+					}
+                    <TableRow>
+                        <TableCell component="th">source</TableCell>
+                        <TableCell>
+                            {/* <pre className="hljs-comment">(Language: {callable.source ? hljs.highlightAuto(callable.source).language : '-'})</pre> */}
+                            {
+								node.source
+								? 	<pre><code dangerouslySetInnerHTML={{__html: `${hljs.highlightAuto(node.source).value}` }}/></pre>
+								: 	null
+                            }
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
 		)
 	}
 }

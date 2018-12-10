@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import hljs from 'highlight.js'
+import Table from '@material-ui/core/Table';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+import TableBody from '@material-ui/core/TableRow';
 
 class Callable extends Component {
 	componentDidMount() {
@@ -20,18 +24,33 @@ class Callable extends Component {
 		const { callable } = this.props
         const dcallable_hash = this.props.match.params.callable
         return (
-            <div className="h-100">
-                <h1>Callable: {dcallable_hash}</h1>
-                <h5>name</h5>{callable.name}
-                <h5>type</h5>{callable.type}
-                <h5>src</h5>
-                <pre className="hljs-comment">(Language: {callable.source ? hljs.highlightAuto(callable.source).language : '-'})</pre>
-                {
-                    callable.source
-                    ?   <pre><code dangerouslySetInnerHTML={{__html: `${hljs.highlightAuto(callable.source).value}` }}/></pre>
-                    :   null
-                }
-            </div>
+            <Table>
+                <TableBody>
+                    <TableRow>
+                        <TableCell component="th">hash</TableCell>
+                        <TableCell>{dcallable_hash}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell component="th">name</TableCell>
+                        <TableCell>{callable.name}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell component="th">type</TableCell>
+                        <TableCell>{callable.type}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                        <TableCell component="th">source</TableCell>
+                        <TableCell>
+                            {/* <pre className="hljs-comment">(Language: {callable.source ? hljs.highlightAuto(callable.source).language : '-'})</pre> */}
+                            {
+                                callable.source
+                                ?   <pre><code dangerouslySetInnerHTML={{__html: `${hljs.highlightAuto(callable.source).value}` }}/></pre>
+                                :   null
+                            }
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
         );
     }
 }

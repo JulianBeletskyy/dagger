@@ -36,11 +36,11 @@ class Worker extends Component {
 		})
 
 		const columns = [{
-		    Header: 'K',
+		    Header: 'Property',
 		    accessor: 'k',
 		    Cell: props => <span>{props.value}</span>
 		},{
-		    Header: 'V',
+		    Header: 'Value',
 		    accessor: 'v',
 		    Cell: props => <div>{
 				props.row.k === 'dcommit'
@@ -67,7 +67,6 @@ class Worker extends Component {
 					?	<div><h5>stderr</h5><pre>{worker.stderr}</pre></div>
 					:	null
 				}
-				<JSONTree invertTheme={false} data={worker} />
             </div>
 		)
 	}

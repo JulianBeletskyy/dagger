@@ -2,8 +2,8 @@ export default {
     'private': [
         {
             'path': '/',
-            'component': 'Main',
-            'name': 'Main',
+            'component': 'Nodes',
+            'name': 'Nodes',
         }, {
             'path': '/commitsets',
             'component': 'Commitsets',
