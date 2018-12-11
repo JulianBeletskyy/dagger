@@ -2,7 +2,7 @@ export const SIDE_MENU_LIST = [
 	{title: 'Nodes', link: 'nodes'},
 	// {title: 'Build Commitset', link: 'build-commit'},
 	{title: 'Commitsets', link: 'commitsets'},
-	{title: 'Commits', link: 'commits'},
+	// {title: 'Commits', link: 'commits'},
 	{title: 'Workers', link: 'workers'},
 	// {title: 'Workers logs', link: 'workers-logs'},
 	// {title: 'Restart Server'},
